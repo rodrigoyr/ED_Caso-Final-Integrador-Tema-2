@@ -1,74 +1,56 @@
-package modules.VisitantesModule;
-
-import modules.MantenimientoySeguridadModule.MantenimientoYseguridad;
-import modules.RecursosModule.Recursos;
-import modules.VisitantesModule.GuiaVirtual;
-import modules.VisitantesModule.Trabajador;
-import modules.VisitantesModule.Visitante;
-import modules.VisitantesModule.QuioscoInteractivo;
-
-import java.util.Scanner;
-
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Bienvenido al sistema. ¿Eres un trabajador o un visitante?");
-        String userType = scanner.nextLine();
+    public interface GuiaVirtual {
+        void proporcionarTour();
+    }
 
-        GuiaVirtual user;
-        MantenimientoYseguridad mantenimiento = new MantenimientoYseguridad("Instalación 1");
-        Recursos recursos = new Recursos();
-
-        if (userType.equalsIgnoreCase("trabajador")) {
-            user = new Trabajador();
-            System.out.println("1. Proporcionar un tour.");
-            System.out.println("2. Programar mantenimiento.");
-            System.out.println("3. Realizar reparación urgente.");
-            System.out.println("4. Agregar recursos.");
-            System.out.println("5. Realizar pedido de recursos.");
-            int opcion = scanner.nextInt();
-            switch (opcion) {
-                case 1:
-                    user.proporcionarTour();
-                    break;
-                case 2:
-                    mantenimiento.programarMantenimiento();
-                    break;
-                case 3:
-                    mantenimiento.reparacionUrgente();
-                    break;
-                case 4:
-                    recursos.agregarAlimento("Manzanas", 100, "Proveedor 1");
-                    recursos.agregarMedicina("Paracetamol", 50, "Proveedor 2");
-                    recursos.agregarEquipamiento("Jaulas", 10, "Proveedor 3");
-                    break;
-                case 5:
-                    recursos.realizarPedidoAlimentos("Manzanas", 50);
-                    recursos.realizarPedidoMedicinas("Paracetamol", 20);
-                    recursos.realizarPedidoEquipamiento("Jaulas", 5);
-                    break;
-                default:
-                    System.out.println("Opción no reconocida.");
-            }
-        } else if (userType.equalsIgnoreCase("visitante")) {
-            user = new Visitante();
-            System.out.println("1. Tomar un tour.");
-            System.out.println("2. Visitar el Quiosco Interactivo.");
-            int opcion = scanner.nextInt();
-            switch (opcion) {
-                case 1:
-                    user.proporcionarTour();
-                    break;
-                case 2:
-                    QuioscoInteractivo quiosco = new QuioscoInteractivo();
-                    quiosco.proporcionarInformacion("animales");
-                    break;
-                default:
-                    System.out.println("Opción no reconocida.");
-            }
-        } else {
-            System.out.println("Tipo de usuario no reconocido. Por favor, ingresa 'trabajador' o 'visitante'.");
+    public static class GuiaNinos implements GuiaVirtual {
+        @Override
+        public void proporcionarTour() {
+            System.out.println("Bienvenido, pequeño explorador. Te llevaré en un tour especial para niños.");
         }
+    }
+
+    public static class GuiaAves implements GuiaVirtual {
+        @Override
+        public void proporcionarTour() {
+            System.out.println("¡Hola amante de las aves! Vamos a explorar el fascinante mundo de nuestras aves.");
+        }
+    }
+
+    public static class GuiaMamiferos implements GuiaVirtual {
+        @Override
+        public void proporcionarTour() {
+            System.out.println("¡Prepárate para un emocionante viaje entre los mamíferos! ¡Vamos a comenzar!");
+        }
+    }
+
+    public static class QuioscoInteractivo {
+        public void proporcionarInformacion(String categoria) {
+            switch (categoria.toLowerCase()) {
+                case "animales":
+                    System.out.println("¡Bienvenido al Quiosco Interactivo de Animales! Aquí encontrarás información sobre nuestros maravillosos habitantes.");
+                    break;
+                case "habitats":
+                    System.out.println("Explora el Quiosco Interactivo de Habitats para conocer más sobre los entornos de nuestros animales.");
+                    break;
+                default:
+                    System.out.println("Lo siento, no se encuentra disponible la información para la categoría seleccionada.");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        GuiaVirtual guiaNinos = new GuiaNinos();
+        GuiaVirtual guiaAves = new GuiaAves();
+        GuiaVirtual guiaMamiferos = new GuiaMamiferos();
+        QuioscoInteractivo quioscoInteractivo = new QuioscoInteractivo();
+
+        guiaNinos.proporcionarTour();
+        guiaAves.proporcionarTour();
+        guiaMamiferos.proporcionarTour();
+
+        quioscoInteractivo.proporcionarInformacion("animales");
+        quioscoInteractivo.proporcionarInformacion("habitats");
     }
 }
