@@ -3,6 +3,6 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="junit.jupiter.api" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="junit.jupiter.api" level="project" />
   </component>
 </module>
