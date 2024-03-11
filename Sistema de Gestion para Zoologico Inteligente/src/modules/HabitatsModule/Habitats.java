@@ -1,11 +1,11 @@
 // En modules/habitats
 package modules.habitats;
 
-public abstract class Habitat {
+public abstract class Habitats {
     private String tipo;
     private int capacidad;
 
-    public Habitat(String tipo, int capacidad) {
+    public Habitats(String tipo, int capacidad) {
         this.tipo = tipo;
         this.capacidad = capacidad;
     }
@@ -25,7 +25,7 @@ public abstract class Habitat {
 // En modules/habitats
 package modules.habitats;
 
-public class Acuatico extends Habitat {
+public class Acuatico extends Habitats {
     private String tipoAgua;
 
     public Acuatico(String tipo, int capacidad, String tipoAgua) {
@@ -45,7 +45,7 @@ public class Acuatico extends Habitat {
 // En modules/habitats
 package modules.habitats;
 
-public class Terrestre extends Habitat {
+public class Terrestre extends Habitats {
     private String tipoTerreno;
 
     public Terrestre(String tipo, int capacidad, String tipoTerreno) {
