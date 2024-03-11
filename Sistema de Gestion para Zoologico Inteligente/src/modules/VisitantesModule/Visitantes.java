@@ -1,56 +1,115 @@
-public class Visitantes {
+// En src/main/java/MainModule/Main.java
+package MainModule;
 
-    public interface GuiaVirtual {
-        void proporcionarTour();
-    }
+import modules.AnimalesModule.Ave;
+import modules.AnimalesModule.Mamifero;
+import modules.HabitatsModule.Acuatico;
+import modules.HabitatsModule.Terrestre;
+import modules.MantenimientoySeguridadModule.MantenimientoYseguridad;
+import modules.RecursosModule.Recursos;
+import modules.VisitantesModule.Visitantes.GuiaAves;
+import modules.VisitantesModule.Visitantes.GuiaMamiferos;
+import modules.VisitantesModule.Visitantes.GuiaNinos;
+import modules.VisitantesModule.Visitantes.QuioscoInteractivo;
 
-    public static class GuiaNinos implements GuiaVirtual {
-        @Override
-        public void proporcionarTour() {
-            System.out.println("Bienvenido, pequeño explorador. Te llevaré en un tour especial para niños.");
-        }
-    }
+import java.util.Scanner;
 
-    public static class GuiaAves implements GuiaVirtual {
-        @Override
-        public void proporcionarTour() {
-            System.out.println("¡Hola amante de las aves! Vamos a explorar el fascinante mundo de nuestras aves.");
-        }
-    }
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-    public static class GuiaMamiferos implements GuiaVirtual {
-        @Override
-        public void proporcionarTour() {
-            System.out.println("¡Prepárate para un emocionante viaje entre los mamíferos! ¡Vamos a comenzar!");
-        }
-    }
+        while (true) {
+            System.out.println("Bienvenido al Sistema de Gestión para Zoológico Inteligente");
+            System.out.println("Seleccione una opción:");
+            System.out.println("1. Trabajador");
+            System.out.println("2. Visitante");
+            System.out.println("3. Salir");
 
-    public static class QuioscoInteractivo {
-        public void proporcionarInformacion(String categoria) {
-            switch (categoria.toLowerCase()) {
-                case "animales":
-                    System.out.println("¡Bienvenido al Quiosco Interactivo de Animales! Aquí encontrarás información sobre nuestros maravillosos habitantes.");
+            int opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    menuTrabajador();
                     break;
-                case "habitats":
-                    System.out.println("Explora el Quiosco Interactivo de Habitats para conocer más sobre los entornos de nuestros animales.");
+                case 2:
+                    menuVisitante();
                     break;
+                case 3:
+                    System.out.println("Saliendo del programa. ¡Hasta luego!");
+                    System.exit(0);
                 default:
-                    System.out.println("Lo siento, no se encuentra disponible la información para la categoría seleccionada.");
+                    System.out.println("Opción no válida. Por favor, seleccione nuevamente.");
             }
         }
     }
 
-    public static void main(String[] args) {
-        GuiaVirtual guiaNinos = new GuiaNinos();
-        GuiaVirtual guiaAves = new GuiaAves();
-        GuiaVirtual guiaMamiferos = new GuiaMamiferos();
-        QuioscoInteractivo quioscoInteractivo = new QuioscoInteractivo();
+    private static void menuTrabajador() {
+        Scanner scanner = new Scanner(System.in);
 
-        guiaNinos.proporcionarTour();
-        guiaAves.proporcionarTour();
-        guiaMamiferos.proporcionarTour();
+        while (true) {
+            System.out.println("Menú Trabajador");
+            System.out.println("Seleccione una opción:");
+            System.out.println("1. Dar de comer a los animales");
+            System.out.println("2. Limpiar los hábitats");
+            System.out.println("3. Reponer recursos");
+            System.out.println("4. Programar mantenimiento");
+            System.out.println("5. Reparación urgente");
+            System.out.println("6. Volver al menú principal");
 
-        quioscoInteractivo.proporcionarInformacion("animales");
-        quioscoInteractivo.proporcionarInformacion("habitats");
+            int opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    // Lógica para dar de comer a los animales
+                    break;
+                case 2:
+                    // Lógica para limpiar los hábitats
+                    break;
+                case 3:
+                    // Lógica para reponer recursos
+                    break;
+                case 4:
+                    // Lógica para programar mantenimiento
+                    break;
+                case 5:
+                    // Lógica para reparación urgente
+                    break;
+                case 6:
+                    return;
+                default:
+                    System.out.println("Opción no válida. Por favor, seleccione nuevamente.");
+            }
+        }
+    }
+
+    private static void menuVisitante() {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Menú Visitante");
+            System.out.println("Seleccione una opción:");
+            System.out.println("1. Visitar hábitats");
+            System.out.println("2. Tour específico para niños");
+            System.out.println("3. Visitar quiosco con información");
+            System.out.println("4. Volver al menú principal");
+
+            int opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    // Lógica para visitar hábitats
+                    break;
+                case 2:
+                    // Lógica para tour específico para niños
+                    break;
+                case 3:
+                    // Lógica para visitar quiosco con información
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("Opción no válida. Por favor, seleccione nuevamente.");
+            }
+        }
     }
 }
