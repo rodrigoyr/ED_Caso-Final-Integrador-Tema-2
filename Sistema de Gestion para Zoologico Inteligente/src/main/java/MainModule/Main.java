@@ -1,11 +1,12 @@
 package main.java.MainModule;
 import java.util.Scanner;
 
-import modules.AnimalesModule.Animales;
+import modules.AnimalesModule.Ave;
+import modules.AnimalesModule.Mamifero;
 import modules.HabitatsModule.Habitats;
 import modules.MantenimientoySeguridadModule.MantenimientoYseguridad;
 import modules.RecursosModule.Recursos;
-import modules.VisitantesModule.Visitantes;
+import modules.VisitantesModule.GuiaNinos;
 
 public class Main {
 
@@ -20,10 +21,10 @@ public class Main {
         }
 
         public void realizarTarea(Object tarea) {
-            if (tarea instanceof Animales) {
-                ((Animales) tarea).alimentar();
-            } else if (tarea instanceof Habitats) {
-                ((Habitats) tarea).limpiar();
+            if (tarea instanceof Ave) {
+                ((Ave) tarea).alimentar();
+            } else if (tarea instanceof HabitatConcreto) {
+                ((HabitatConcreto) tarea).limpiar();
             } else if (tarea instanceof MantenimientoYseguridad) {
                 ((MantenimientoYseguridad) tarea).realizarMantenimiento();
             } else if (tarea instanceof Recursos) {
@@ -41,8 +42,8 @@ public class Main {
         }
 
         public void realizarTarea(Object tarea) {
-            if (tarea instanceof Visitantes) {
-                ((Visitantes) tarea).visitar();
+            if (tarea instanceof GuiaNinos) {
+                ((GuiaNinos) tarea).proporcionarTour();
             } else {
                 System.out.println("Tarea no reconocida.");
             }
@@ -52,11 +53,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         GuiaVirtual user;
-        Animales animales = new Animales();
-        Habitats habitats = new Habitats();
-        MantenimientoYseguridad mantenimientoYseguridad = new MantenimientoYseguridad();
+        Ave ave = new Ave("Pájaro", 2, "Plumas coloridas");
+        Mamifero mamifero = new Mamifero("Elefante", 10, "Piel gruesa");
+        HabitatConcreto habitat = new HabitatConcreto(); // Asegúrate de que esta clase exista en tu módulo HabitatsModule
+        MantenimientoYseguridad mantenimientoYseguridad = new MantenimientoYseguridad("argumento"); // Asegúrate de proporcionar el argumento correcto
         Recursos recursos = new Recursos();
-        Visitantes visitantes = new Visitantes();
+        GuiaNinos guiaNinos = new GuiaNinos();
 
         while (true) {
             System.out.println("Bienvenido al sistema. ¿Eres un 1. Trabajador o 2. Visitante?");
@@ -66,13 +68,13 @@ public class Main {
             if (userType == 1) {
                 user = new Trabajador();
                 user.proporcionarTour();
-                System.out.println("¿Qué tarea deseas realizar? 1. Alimentar animales, 2. Limpiar habitats, 3. Realizar mantenimiento, 4. Reponer recursos");
+                System.out.println("¿Qué tarea deseas realizar? 1. Alimentar ave, 2. Limpiar habitat, 3. Realizar mantenimiento, 4. Reponer recursos");
                 int tarea = scanner.nextInt();
                 scanner.nextLine(); // consume newline
                 if (tarea == 1) {
-                    ((Trabajador) user).realizarTarea(animales);
+                    ((Trabajador) user).realizarTarea(ave);
                 } else if (tarea == 2) {
-                    ((Trabajador) user).realizarTarea(habitats);
+                    ((Trabajador) user).realizarTarea(habitat);
                 } else if (tarea == 3) {
                     ((Trabajador) user).realizarTarea(mantenimientoYseguridad);
                 } else if (tarea == 4) {
@@ -83,11 +85,11 @@ public class Main {
             } else if (userType == 2) {
                 user = new Visitante();
                 user.proporcionarTour();
-                System.out.println("¿Qué deseas hacer? 1. Visitar");
+                System.out.println("¿Qué deseas hacer? 1. Tomar un tour para niños");
                 int opcion = scanner.nextInt();
                 scanner.nextLine(); // consume newline
                 if (opcion == 1) {
-                    ((Visitante) user).realizarTarea(visitantes);
+                    ((Visitante) user).realizarTarea(guiaNinos);
                 } else {
                     System.out.println("Opción no reconocida. Por favor, ingresa 1.");
                 }
