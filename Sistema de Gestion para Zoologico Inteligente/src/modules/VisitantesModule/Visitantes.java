@@ -1,6 +1,5 @@
-package modules;
+package modules.VisitantesModule;
 
-import modules.VisitantesModule.*;
 import modules.MantenimientoySeguridadModule.MantenimientoYseguridad;
 import modules.RecursosModule.Recursos;
 

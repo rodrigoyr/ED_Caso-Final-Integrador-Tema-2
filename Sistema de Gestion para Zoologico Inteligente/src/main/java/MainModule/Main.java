@@ -1,7 +1,10 @@
-// En src/main/java/MainModule
-package main.MainModule;
+package modules;
 
-import modules.*;
+import modules.VisitantesModule.Trabajador;
+import modules.VisitantesModule.Visitante;
+import modules.VisitantesModule.QuioscoInteractivo;
+import modules.MantenimientoySeguridadModule.MantenimientoYseguridad;
+import modules.RecursosModule.Recursos;
 
 import java.util.Scanner;
 
@@ -9,137 +12,62 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("¡Bienvenido al Zoológico Inteligente!");
+        System.out.println("Bienvenido al sistema. ¿Eres un trabajador o un visitante?");
+        String userType = scanner.nextLine();
 
-        System.out.println("¿Eres un visitante o un trabajador?");
-        System.out.println("1. Visitante");
-        System.out.println("2. Trabajador");
-
-        int opcion = scanner.nextInt();
-
-        if (opcion == 1) {
-            interactuarComoVisitante();
-        } else if (opcion == 2) {
-            interactuarComoTrabajador();
-        } else {
-            System.out.println("Opción no válida. Saliendo del programa.");
-        }
-    }
-
-    private static void interactuarComoVisitante() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("¡Bienvenido, visitante!");
-        System.out.println("Selecciona una opción:");
-        System.out.println("1. Visitar los hábitats");
-        System.out.println("2. Dar de comer a los animales");
-        System.out.println("3. Obtener información en el Quiosco Interactivo");
-
-        int opcion = scanner.nextInt();
-
-        switch (opcion) {
-            case 1:
-                visitarHabitats();
-                break;
-            case 2:
-                darDeComerAnimales();
-                break;
-            case 3:
-                obtenerInformacion();
-                break;
-            default:
-                System.out.println("Opción no válida. Volviendo al menú principal.");
-        }
-    }
-
-    private static void visitarHabitats() {
-        // Lógica para visitar hábitats...
-        System.out.println("Visitando los hábitats...");
-    }
-
-    private static void darDeComerAnimales() {
-        // Lógica para dar de comer a los animales...
-        System.out.println("Dando de comer a los animales...");
-    }
-
-    private static void obtenerInformacion() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Selecciona la categoría de información:");
-        System.out.println("1. Animales");
-        System.out.println("2. Hábitats");
-
-        int opcion = scanner.nextInt();
-
-        QuioscoInteractivo quiosco = new QuioscoInteractivo();
-        switch (opcion) {
-            case 1:
-                quiosco.proporcionarInformacion("animales");
-                break;
-            case 2:
-                quiosco.proporcionarInformacion("habitats");
-                break;
-            default:
-                System.out.println("Opción no válida. Volviendo al menú principal.");
-        }
-    }
-
-    private static void interactuarComoTrabajador() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("¡Bienvenido, trabajador!");
-        System.out.println("Selecciona una opción:");
-        System.out.println("1. Limpiar hábitats");
-        System.out.println("2. Rellenar recursos");
-        System.out.println("3. Programar mantenimiento o reparación");
-
-        int opcion = scanner.nextInt();
-
+        GuiaVirtual user;
+        MantenimientoYseguridad mantenimiento = new MantenimientoYseguridad("Instalación 1");
         Recursos recursos = new Recursos();
-        MantenimientoYseguridad mantenimientoYseguridad = new MantenimientoYseguridad("Habitat Principal");
 
-        switch (opcion) {
-            case 1:
-                limpiarHabitats();
-                break;
-            case 2:
-                rellenarRecursos(recursos);
-                break;
-            case 3:
-                programarMantenimientoOReparacion(mantenimientoYseguridad);
-                break;
-            default:
-                System.out.println("Opción no válida. Volviendo al menú principal.");
-        }
-    }
-
-    private static void limpiarHabitats() {
-        // Lógica para limpiar hábitats...
-        System.out.println("Limpiando hábitats...");
-    }
-
-    private static void rellenarRecursos(Recursos recursos) {
-        // Lógica para rellenar recursos...
-        System.out.println("Rellenando recursos...");
-        recursos.agregarAlimento("Frutas", 100, "ProveedorA");
-        recursos.agregarMedicina("Analgesicos", 50, "ProveedorB");
-        recursos.agregarEquipamiento("Redes", 20, "ProveedorC");
-    }
-
-    private static void programarMantenimientoOReparacion(MantenimientoYseguridad mantenimientoYseguridad) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Selecciona una opción:");
-        System.out.println("1. Programar mantenimiento");
-        System.out.println("2. Programar reparación urgente");
-
-        int opcion = scanner.nextInt();
-
-        switch (opcion) {
-            case 1:
-                mantenimientoYseguridad.programarMantenimiento();
-                break;
-            case 2:
-                mantenimientoYseguridad.reparacionUrgente();
-                break;
-            default:
-                System.out.println("Opción no válida. Volviendo al menú principal.");
+        if (userType.equalsIgnoreCase("trabajador")) {
+            user = new Trabajador();
+            System.out.println("1. Proporcionar un tour.");
+            System.out.println("2. Programar mantenimiento.");
+            System.out.println("3. Realizar reparación urgente.");
+            System.out.println("4. Agregar recursos.");
+            System.out.println("5. Realizar pedido de recursos.");
+            int opcion = scanner.nextInt();
+            switch (opcion) {
+                case 1:
+                    user.proporcionarTour();
+                    break;
+                case 2:
+                    mantenimiento.programarMantenimiento();
+                    break;
+                case 3:
+                    mantenimiento.reparacionUrgente();
+                    break;
+                case 4:
+                    recursos.agregarAlimento("Manzanas", 100, "Proveedor 1");
+                    recursos.agregarMedicina("Paracetamol", 50, "Proveedor 2");
+                    recursos.agregarEquipamiento("Jaulas", 10, "Proveedor 3");
+                    break;
+                case 5:
+                    recursos.realizarPedidoAlimentos("Manzanas", 50);
+                    recursos.realizarPedidoMedicinas("Paracetamol", 20);
+                    recursos.realizarPedidoEquipamiento("Jaulas", 5);
+                    break;
+                default:
+                    System.out.println("Opción no reconocida.");
+            }
+        } else if (userType.equalsIgnoreCase("visitante")) {
+            user = new Visitante();
+            System.out.println("1. Tomar un tour.");
+            System.out.println("2. Visitar el Quiosco Interactivo.");
+            int opcion = scanner.nextInt();
+            switch (opcion) {
+                case 1:
+                    user.proporcionarTour();
+                    break;
+                case 2:
+                    QuioscoInteractivo quiosco = new QuioscoInteractivo();
+                    quiosco.proporcionarInformacion("animales");
+                    break;
+                default:
+                    System.out.println("Opción no reconocida.");
+            }
+        } else {
+            System.out.println("Tipo de usuario no reconocido. Por favor, ingresa 'trabajador' o 'visitante'.");
         }
     }
 }
