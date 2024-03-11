@@ -1,6 +1,6 @@
 package modules.VisitantesModule;
 
-public interface GuiaVirtual {
+interface GuiaVirtual {
     void proporcionarTour();
 }
 
