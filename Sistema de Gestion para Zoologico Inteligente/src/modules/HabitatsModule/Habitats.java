@@ -22,10 +22,7 @@ public abstract class Habitats {
     // Otros métodos específicos de los hábitats...
 }
 
-// En modules/habitats
-package modules.habitats;
-
-public class Acuatico extends Habitats {
+class Acuatico extends Habitats {
     private String tipoAgua;
 
     public Acuatico(String tipo, int capacidad, String tipoAgua) {
@@ -42,16 +39,22 @@ public class Acuatico extends Habitats {
     }
 }
 
-// En modules/habitats
-package modules.habitats;
-
-public class Terrestre extends Habitats {
+class Terrestre extends Habitats {
     private String tipoTerreno;
 
     public Terrestre(String tipo, int capacidad, String tipoTerreno) {
         super(tipo, capacidad);
         this.tipoTerreno = tipoTerreno;
     }
+
+    @Override
+    public void monitorear() {
+        System.out.println("Monitoreando hábitat terrestre: " + getTipo() +
+                ", Capacidad: " + getCapacidad() +
+                ", Tipo de Terreno: " + tipoTerreno);
+        // Lógica adicional de monitoreo para hábitats terrestres...
+    }
+}
 
     @Override
     public void monitorear() {
