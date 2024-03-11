@@ -1,5 +1,5 @@
-// En modules/habitats
-package modules.habitats;
+// En modules/HabitatsModule
+package modules.HabitatsModule;
 
 public abstract class Habitats {
     private String tipo;
@@ -46,15 +46,6 @@ class Terrestre extends Habitats {
         super(tipo, capacidad);
         this.tipoTerreno = tipoTerreno;
     }
-
-    @Override
-    public void monitorear() {
-        System.out.println("Monitoreando hábitat terrestre: " + getTipo() +
-                ", Capacidad: " + getCapacidad() +
-                ", Tipo de Terreno: " + tipoTerreno);
-        // Lógica adicional de monitoreo para hábitats terrestres...
-    }
-}
 
     @Override
     public void monitorear() {
