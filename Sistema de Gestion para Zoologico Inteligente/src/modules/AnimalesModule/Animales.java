@@ -1,4 +1,4 @@
-// En modules/animales
+// En modules/AnimalesModule
 package modules.AnimalesModule;
 
 import java.util.Scanner;
@@ -34,9 +34,6 @@ public abstract class Animales {
     // Otros métodos específicos de los animales...
 }
 
-// En modules/animales
-package module.AnimalesModule;
-
 public class Ave extends Animales {
     private String tipoPlumaje;
 
@@ -62,9 +59,6 @@ public class Ave extends Animales {
 
     // Otros métodos específicos de las aves...
 }
-
-// En modules/animales
-package Animales;
 
 public class Mamifero extends Animales {
     private String tipoPelaje;
