@@ -172,5 +172,27 @@ public class Main {
                 String proveedorAlimentos = scanner.nextLine();
                 recursos.agregarAlimento(tipoAlimento, cantidadAlimentos, proveedorAlimentos);
                 break;
-            case
+            case 2:
+                // Agregar lógica para reponer medicinas
+                break;
+            case 3:
+                // Agregar lógica para reponer equipamiento
+                break;
+            default:
+                System.out.println("Opción no válida. Inténtalo de nuevo.");
         }
+    }
+
+    private static void visitarHabitat(int opcion) {
+        switch (opcion) {
+            case 1:
+                // Agregar lógica para visitar el hábitat acuático
+                break;
+            case 2:
+                // Agregar lógica para visitar el hábitat terrestre
+                break;
+            default:
+                System.out.println("Opción no válida. Inténtalo de nuevo.");
+        }
+    }
+}

@@ -22,7 +22,7 @@ public abstract class Habitats {
     // Otros métodos específicos de los hábitats...
 }
 
-class Acuatico extends Habitats {
+public class Acuatico extends Habitats {
     private String tipoAgua;
 
     public Acuatico(String tipo, int capacidad, String tipoAgua) {
@@ -39,7 +39,7 @@ class Acuatico extends Habitats {
     }
 }
 
-class Terrestre extends Habitats {
+public class Terrestre extends Habitats {
     private String tipoTerreno;
 
     public Terrestre(String tipo, int capacidad, String tipoTerreno) {
