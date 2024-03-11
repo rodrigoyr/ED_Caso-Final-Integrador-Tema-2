@@ -1,4 +1,4 @@
-package modules;
+package modules.MantenimientoySeguridadModule;
 
 public class MantenimientoYseguridad {
     private String instalacion;
