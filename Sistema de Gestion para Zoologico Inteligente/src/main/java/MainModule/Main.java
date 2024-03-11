@@ -1,3 +1,6 @@
+package main.java.MainModule;
+import java.util.Scanner;
+
 public class Main {
 
     public interface GuiaVirtual {
