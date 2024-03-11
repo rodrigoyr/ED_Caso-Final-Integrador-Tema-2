@@ -1,4 +1,5 @@
-package modules.VisitantesModule.Tours;
+package modules.VisitantesModule;
 
 public class Tours {
+    // Lógica relacionada con la gestión de tours
 }
