@@ -1,4 +1,4 @@
-public class Main {
+public class Visitantes {
 
     public interface GuiaVirtual {
         void proporcionarTour();
