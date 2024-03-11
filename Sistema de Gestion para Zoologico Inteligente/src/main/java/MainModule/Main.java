@@ -3,7 +3,7 @@ package main.java.MainModule;
 
 import java.util.Scanner;
 import modules.AnimalesModule.Aves.Aves;
-import modules.AnimalesModule.Mamiferos.Mamiferos;
+import modules.AnimalesModule.Mamiferos.AnimalesModule;
 import modules.AnimalesModule.Reptiles.Reptiles;
 import modules.HabitatsModule.Acuaticos.Acuaticos;
 import modules.HabitatsModule.Terrestres.Terrestres;

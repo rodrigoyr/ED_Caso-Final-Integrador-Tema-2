@@ -1,5 +1,5 @@
 // Animal.java
-package modules.AnimalesModule;
+package modules.AnimalesModule.Mamiferos;
 
 public class AnimalesModule {
     private String nombre;

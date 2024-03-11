@@ -1,5 +1,21 @@
 package modules.AnimalesModule;
 
 public class AnimalesModule {
-    // Puedes agregar más lógica según sea necesario
+    private String nombre;
+
+    public AnimalesModule(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void alimentar() {
+        System.out.println(getNombre() + " está siendo alimentado.");
+    }
+
+    public void registrarSalud() {
+        System.out.println("La salud de " + getNombre() + " ha sido registrada.");
+    }
 }

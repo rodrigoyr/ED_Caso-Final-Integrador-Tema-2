@@ -1,8 +1,8 @@
 package modules.AnimalesModule.Aves;
 
-import modules.AnimalesModule.Animal;
+import modules.AnimalesModule.AnimalesModule;
 
-public class Aves extends Animal {
+public class Aves extends AnimalesModule {
     public Aves(String nombre) {
         super(nombre);
     }
