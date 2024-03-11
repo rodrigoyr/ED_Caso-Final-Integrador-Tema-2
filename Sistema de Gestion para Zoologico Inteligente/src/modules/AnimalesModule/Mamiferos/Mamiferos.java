@@ -1,22 +1,26 @@
-// Animal.java
+// Mamiferos.java
 package modules.AnimalesModule.Mamiferos;
 
-public class AnimalesModule {
-    private String nombre;
+import modules.AnimalesModule.AnimalesModule;
 
-    public AnimalesModule(String nombre) {
-        this.nombre = nombre;
+public class Mamiferos extends AnimalesModule {
+    public Mamiferos(String nombre) {
+        super(nombre);
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
+    @Override
     public void alimentar() {
-        System.out.println(getNombre() + " está siendo alimentado.");
+        System.out.println(getNombre() + " está siendo alimentado con una dieta balanceada.");
     }
 
+    @Override
     public void registrarSalud() {
         System.out.println("La salud de " + getNombre() + " ha sido registrada.");
     }
+
+    // Puedes agregar métodos específicos para los mamíferos si es necesario
+    public void amamantar() {
+        System.out.println(getNombre() + " está amamantando a sus crías.");
+    }
 }
+

@@ -1,6 +1,5 @@
 package modules.AnimalesModule.Reptiles;
 
-import modules.AnimalesModule.Mamiferos.AnimalesModule;
 
 public class Reptiles extends AnimalesModule {
     public Reptiles(String nombre) {
