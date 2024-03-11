@@ -1,19 +1,21 @@
-package modules.AnimalesModule.Mamiferos;
+// Animal.java
+package modules.AnimalesModule;
 
-import modules.AnimalesModule.AnimalesModule;
-import modules.AnimalesModule.AnimalesModule;
+public class AnimalesModule {
+    private String nombre;
 
-public class Mamiferos extends AnimalesModule {
-    public Mamiferos(String nombre) {
-        super(nombre);
+    public AnimalesModule(String nombre) {
+        this.nombre = nombre;
     }
 
-    @Override
+    public String getNombre() {
+        return nombre;
+    }
+
     public void alimentar() {
-        System.out.println(getNombre() + " está siendo alimentado con una dieta balanceada.");
+        System.out.println(getNombre() + " está siendo alimentado.");
     }
 
-    @Override
     public void registrarSalud() {
         System.out.println("La salud de " + getNombre() + " ha sido registrada.");
     }
