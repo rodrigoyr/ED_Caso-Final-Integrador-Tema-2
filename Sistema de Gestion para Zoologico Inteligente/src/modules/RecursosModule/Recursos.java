@@ -1,4 +1,4 @@
-package modules;
+package modules.RecursosModule;
 
 import java.util.HashMap;
 import java.util.Map;
