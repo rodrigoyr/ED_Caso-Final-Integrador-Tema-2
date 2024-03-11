@@ -1,14 +1,10 @@
-// En modules
-package modules;
+package modules.VisitantesModule;
 
 public interface GuiaVirtual {
     void proporcionarTour();
 }
 
-// En modules
-package modules;
-
-public class GuiaNinos implements GuiaVirtual {
+class GuiaNinos implements GuiaVirtual {
     @Override
     public void proporcionarTour() {
         System.out.println("Bienvenido, pequeño explorador. Te llevaré en un tour especial para niños.");
@@ -16,10 +12,7 @@ public class GuiaNinos implements GuiaVirtual {
     }
 }
 
-// En modules
-package modules;
-
-public class GuiaAves implements GuiaVirtual {
+class GuiaAves implements GuiaVirtual {
     @Override
     public void proporcionarTour() {
         System.out.println("¡Hola amante de las aves! Vamos a explorar el fascinante mundo de nuestras aves.");
@@ -27,10 +20,7 @@ public class GuiaAves implements GuiaVirtual {
     }
 }
 
-// En modules
-package modules;
-
-public class GuiaMamiferos implements GuiaVirtual {
+class GuiaMamiferos implements GuiaVirtual {
     @Override
     public void proporcionarTour() {
         System.out.println("¡Prepárate para un emocionante viaje entre los mamíferos! ¡Vamos a comenzar!");
@@ -38,10 +28,7 @@ public class GuiaMamiferos implements GuiaVirtual {
     }
 }
 
-// En modules
-package modules;
-
-public class QuioscoInteractivo {
+class QuioscoInteractivo {
     public void proporcionarInformacion(String categoria) {
         switch (categoria.toLowerCase()) {
             case "animales":
