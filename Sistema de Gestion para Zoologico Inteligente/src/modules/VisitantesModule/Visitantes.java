@@ -2,6 +2,10 @@ package modules.VisitantesModule;
 
 import modules.MantenimientoySeguridadModule.MantenimientoYseguridad;
 import modules.RecursosModule.Recursos;
+import modules.VisitantesModule.GuiaVirtual;
+import modules.VisitantesModule.Trabajador;
+import modules.VisitantesModule.Visitante;
+import modules.VisitantesModule.QuioscoInteractivo;
 
 import java.util.Scanner;
 
