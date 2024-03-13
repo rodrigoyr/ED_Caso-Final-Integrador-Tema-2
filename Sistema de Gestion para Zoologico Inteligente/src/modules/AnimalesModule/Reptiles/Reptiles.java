@@ -1,6 +1,8 @@
 package modules.AnimalesModule.Reptiles;
 
 
+import modules.AnimalesModule.AnimalesModule;
+
 public class Reptiles extends AnimalesModule {
     public Reptiles(String nombre) {
         super(nombre);

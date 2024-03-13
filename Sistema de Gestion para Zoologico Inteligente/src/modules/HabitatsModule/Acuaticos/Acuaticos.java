@@ -1,13 +1,12 @@
 package modules.HabitatsModule.Acuaticos;
 
-import modules.HabitatsModule.Habitat;
+import modules.HabitatsModule.HabitatsModule;
 
-public class Acuaticos extends Habitat {
-    public Acuaticos() {
-        super("Acuático");
+public class Acuaticos extends HabitatsModule {
+    public Acuaticos()  {
     }
 
-    @Override
+
     public void monitorearCondiciones() {
         System.out.println("Monitoreando condiciones del hábitat acuático.");
     }
