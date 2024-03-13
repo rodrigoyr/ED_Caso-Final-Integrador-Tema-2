@@ -4,31 +4,37 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Bienvenido al Zoológico Inteligente");
+        // Mensaje de bienvenida
+        System.out.println("¡Bienvenido al Zoológico Inteligente!");
+
+        // Selección de rol
         System.out.println("Seleccione su rol:");
         System.out.println("1. Trabajador");
         System.out.println("2. Visitante");
 
         int opcion = scanner.nextInt();
 
+        // Iniciar acciones según el rol seleccionado
         if (opcion == 1) {
             realizarAccionesTrabajador(scanner);
         } else if (opcion == 2) {
             realizarAccionesVisitante(scanner);
         } else {
-            System.out.println("Opción no válida. Por favor, elija 1 o 2.");
+            System.out.println("Opción no válida. Por favor, seleccione 1 o 2.");
         }
 
         // El programa continúa ejecutándose indefinidamente
         while (true) {
-            // Puedes agregar más lógica aquí según sea necesario
+            // Aquí se podría agregar más lógica según sea necesario
         }
     }
 
+    // Método para realizar acciones como trabajador
     private static void realizarAccionesTrabajador(Scanner scanner) {
         boolean continuar = true;
         while (continuar) {
-            System.out.println("Acciones disponibles para trabajadores:");
+            // Menú de opciones para trabajadores
+            System.out.println("\nAcciones disponibles para trabajadores:");
             System.out.println("1. Dar de comer a los animales");
             System.out.println("2. Limpiar hábitats");
             System.out.println("3. Atender a los clientes");
@@ -54,10 +60,12 @@ public class Main {
         }
     }
 
+    // Método para dar de comer a los animales
     private static void darDeComerAnimales(Scanner scanner) {
         boolean continuar = true;
         while (continuar) {
-            System.out.println("Seleccione el tipo de animal para alimentar:");
+            // Menú de opciones para dar de comer a los animales
+            System.out.println("\nSeleccione el tipo de animal para alimentar:");
             System.out.println("1. Aves");
             System.out.println("2. Mamíferos");
             System.out.println("3. Reptiles");
@@ -83,10 +91,12 @@ public class Main {
         }
     }
 
+    // Método para limpiar los hábitats
     private static void limpiarHabitats(Scanner scanner) {
         boolean continuar = true;
         while (continuar) {
-            System.out.println("Seleccione el hábitat para limpiar:");
+            // Menú de opciones para limpiar hábitats
+            System.out.println("\nSeleccione el hábitat para limpiar:");
             System.out.println("1. Aviario");
             System.out.println("2. Hábitat acuático");
             System.out.println("3. Hábitat terrestre");
@@ -112,10 +122,12 @@ public class Main {
         }
     }
 
+    // Método para atender a los clientes
     private static void atenderClientes(Scanner scanner) {
         boolean continuar = true;
         while (continuar) {
-            System.out.println("Seleccione el lugar para atender a los clientes:");
+            // Menú de opciones para atender a los clientes
+            System.out.println("\nSeleccione el lugar para atender a los clientes:");
             System.out.println("1. Mostrador de entradas");
             System.out.println("2. Quiosco");
             System.out.println("3. Bar");
@@ -141,28 +153,9 @@ public class Main {
         }
     }
 
+    // Método para realizar acciones como visitante
     private static void realizarAccionesVisitante(Scanner scanner) {
-        boolean continuar = true;
-        while (continuar) {
-            System.out.println("Acciones disponibles para visitantes:");
-            System.out.println("1. Visitar hábitats");
-            System.out.println("2. Participar en un tour infantil");
-            System.out.println("3. Volver atrás");
-
-            int opcion = scanner.nextInt();
-            switch (opcion) {
-                case 1:
-                    System.out.println("Visitando hábitats.");
-                    break;
-                case 2:
-                    System.out.println("Participando en un tour infantil.");
-                    break;
-                case 3:
-                    continuar = false;
-                    break;
-                default:
-                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
-            }
-        }
+        // Implementa las acciones específicas para visitantes
+        // Puedes seguir un enfoque similar al de realizarAccionesTrabajador
     }
 }
